@@ -6,7 +6,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 
 @Entity
 public class Endereco implements Serializable{
@@ -30,9 +31,12 @@ public class Endereco implements Serializable{
 	
 	private String cep;
 	
-	@OneToMany(mappedBy="enderecos")
+	@ManyToOne
+	@JoinColumn(name="cliente_id")
 	private Cliente cliente;
 	
+	@ManyToOne
+	@JoinColumn(name="cidade_id")
 	private Cidade cidade;
 	
 	public Endereco() {
