@@ -3,8 +3,8 @@ package com.curso.services;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.curso.domain.Categoria;
-import com.curso.repositories.CategoriaRepository;
+import com.curso.domain.Cliente;
+import com.curso.repositories.ClienteRepository;
 
 import javassist.tools.rmi.ObjectNotFoundException;
 
@@ -12,14 +12,14 @@ import javassist.tools.rmi.ObjectNotFoundException;
 public class ClienteService {
 	
 	@Autowired
-	private CategoriaRepository repo;
+	private ClienteRepository repo;
 	
-	public Categoria buscar(Integer id) throws ObjectNotFoundException {
-		Categoria categoria = repo.findOne(id);
-		if(categoria == null) {
+	public Cliente buscar(Integer id) throws ObjectNotFoundException {
+		Cliente Cliente = repo.findOne(id);
+		if(Cliente == null) {
 				throw new ObjectNotFoundException("Objeto não encontrado! Id: " + id 
-						+ ", Tipo: " + Categoria.class.getName());
+						+ ", Tipo: " + Cliente.class.getName());
 		}
-		return categoria;
+		return Cliente;
 	}
 }

@@ -84,11 +84,14 @@ public class CursomcApplication implements CommandLineRunner{
 		
 		Endereco end1 = new Endereco(null, "Rua Flores", "234", "Supermercado cometa", "Cambeba", "60.303-345");
 		Endereco end2 = new Endereco(null, "Rua Marias", "234", "Supermercado cometa", "Aldeota", "60.303-345");
+		end1.setCidade(c1);
 		
+		end2.setCidade(c2);
 		cli1.getEnderecos().addAll(Arrays.asList(end1, end2));
 		
-		clienteRepository.save(cli1);
 		enderecoRepository.save(Arrays.asList(end1, end2));
+		clienteRepository.save(cli1);
+		
 		
 	}
 
